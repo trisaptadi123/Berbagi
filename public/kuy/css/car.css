@@ -1,0 +1,149 @@
+/*------------------------------------------------------------------------------------------------------------------------
+ 
+ @package: Sadaka
+ @author: Ouarmedia/Farouk BLALOU
+ @version: 1.0
+ 
+ --------------------------------------------------------------------------------------------------------------------- */
+
+/* =============================================================================
+  Base
+========================================================================== */
+
+
+/* Home Slider 
+================================= */
+.carousel-home img {
+  width: 100%;
+
+}
+.carousel-home .carousel-control {
+  background: #1f76bd;
+  height: 80px;
+  width: 40px;
+  top: 50%;
+  margin-top: -40px;
+  -moz-transition: width, 0.3s;
+  -o-transition: width, 0.3s;
+  -webkit-transition: width, 0.3s;
+  transition: width, 0.3s;
+}
+.carousel-home .carousel-control .fa {
+  font-size: 2.5em;
+  padding-top: 12px;
+}
+.carousel-home .carousel-control:hover {
+  width: 50px;
+}
+.carousel-home .carousel-caption {
+  top: 50%;
+  bottom: auto;
+  transform: translateY(-50%);
+}
+.carousel-home .carousel-title {
+  color: #fff;
+  font-family: "Dosis", sans-serif;
+  font-size: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.carousel-home .carousel-subtitle {
+  font-size: 25px;
+  text-transform: uppercase;
+}
+.carousel-home .btn {
+  margin-top: 30px;
+}
+
+.section-home {
+  margin: 30px 0;
+}
+
+
+/* Ow carousel
+================================= */
+.owl-next,
+.owl-prev {
+  width: 32px;
+  height: 32px;
+  padding-top: 5px;
+  border: 2px solid;
+  text-align: center;
+  border-radius: 50%;
+  left: 0;
+  position: absolute;
+  top: 50%;
+  margin-top: -16px;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=75);
+  opacity: 0.75;
+  -moz-transition: all, 0.5s;
+  -o-transition: all, 0.5s;
+  -webkit-transition: all, 0.5s;
+  transition: all, 0.5s;
+}
+.owl-next:hover,
+.owl-prev:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+}
+
+.owl-next {
+  left: auto;
+  right: 0;
+}
+
+/* =============================================================================
+	Responsive
+========================================================================== */
+
+@media (max-width: 992px) {
+  .carousel-home .carousel-title {
+    font-size: 36px;
+  }
+  .carousel-home .carousel-subtitle {
+    font-size: 18px;
+  }
+  .carousel-home .btn {
+    margin-top: 15px;
+  }
+}
+/* Small devices (tablets, 768px and Down) */
+@media (max-width: 768px) {
+
+  .carousel-home .carousel-title {
+    font-size: 32px;
+  }
+  .carousel-home .carousel-subtitle {
+    font-size: 16px;
+  }
+  .carousel-home .carousel-control {
+    background: #1f76bd;
+    height: 40px;
+    width: 20px;
+    top: 50%;
+    margin-top: -20px;
+  }
+  .carousel-home .carousel-control .fa {
+    font-size: 1.5em;
+    padding-top: 4px;
+  }
+
+  .col-form {
+    margin-bottom: 25px;
+  }
+}
+/* Extra Small devices (tablets, 480px and Down) */
+@media (max-width: 480px) {
+  .carousel-home .carousel-title {
+    font-size: 16px;
+    margin: 0;
+  }
+  .carousel-home .carousel-subtitle {
+    font-size: 14px;
+    margin: 0;
+  }
+  .carousel-home .carousel-indicators {
+    bottom: 0;
+  }
+  
+}
