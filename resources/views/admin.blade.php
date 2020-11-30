@@ -28,7 +28,8 @@
   <!-- Daterange picker -->
   <link rel="stylesheet" href="{{asset('gaya/bower_components/bootstrap-daterangepicker/daterangepicker.css')}}">
   <!-- bootstrap wysihtml5 - text editor -->
-  <link rel="stylesheet" href="{{asset('gaya/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
+  <link rel="stylesheet" href="{{asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
+ 
   
 
 
@@ -99,10 +100,10 @@
 <script src="{{asset('gaya/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
 <!-- Bootstrap WYSIHTML5 -->
 <script src="{{asset('gaya/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
+<script src="{{asset('gaya/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
 {{-- Data table --}}
 <script src="{{asset('gaya/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('gaya/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 <!-- Slimscroll -->
 <script src="{{asset('gaya/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
@@ -114,7 +115,6 @@
 <script src="{{asset('gaya/dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('gaya/dist/js/demo.js')}}"></script>
-{{-- <script src="{{asset('gaya/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script> --}}
 <script>
   $(function () {
     $('#example1').DataTable()

@@ -71,6 +71,9 @@
 							
 							</div>
 							</div>
+								<div class="form-field">
+									<input name="zaprov" type="hidden" value="zakat profesi" placeholder="zaprov" >
+								</div>
 							<div class="col-md-4">
 							<div class="form-field" style="padding-top:15px;">
 								<button type="submit" class="btn main_bt  col-md-12"  id="kirim">Bayar Zakat</button>
@@ -140,6 +143,9 @@
 								<input required name="jumlah" type="text" onkeyup="convertToRupiah(this);" placeholder="Rp. 0" onblur="stopCalc()">
 							</div>
 							</div>
+							<div class="form-field">
+								<input name="zaprov" type="hidden" value="zakat dagang" placeholder="zaprov" >
+							</div>
 							<div class="col-md-4">
 							<div class="form-field" style="padding-top:15px;">
 								<button type="submit"  class="btn main_bt  col-md-12"  >Bayar Zakat</button>
@@ -177,16 +183,19 @@
 							</div>
 							</div>
 							<div class="col-md-12"><hr /></div>
-				</div>
-				</div>
-				</div>
-			  </div>
-							
+								</div>
+								</div>
+								</div>
+							</div>
+											
 							<div class="col-md-8">
 							<div class="form-field">
 								<label>Jumlah zakat simpanan yang anda bayar</label>
 								<input required name="jumlah" type="text" onkeyup="convertToRupiah(this);" placeholder="Rp. 0" onblur="stopCalc()">
 							</div>
+							</div>
+							<div class="form-field">
+								<input name="zaprov" type="hidden" value="zakat simpanan" placeholder="zaprov" >
 							</div>
 							<div class="col-md-4">
 							<div class="form-field" style="padding-top:15px;">
@@ -230,6 +239,9 @@
 								<label>Jumlah zakat Emas yang anda bayar</label>
 								<input required name="jumlah" type="text" onkeyup="convertToRupiah(this);" placeholder="Rp. 0" onblur="stopCalc()">
 							</div>
+							</div>
+							<div class="form-field">
+								<input name="zaprov" type="hidden" value="zakat emas" placeholder="zaprov" >
 							</div>
 							<div class="col-md-4">
 							<div class="form-field" style="padding-top:15px;">
