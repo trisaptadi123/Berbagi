@@ -21,7 +21,7 @@ class ZakatController extends Controller
         return view ('zakat.create');
     }
   
-    public function store(Request $request){
+    public function stored(Request $request){
         // $input = $request->all(); 
         // Zakat::create($input);
         $zakat = new Zakat;
@@ -51,7 +51,7 @@ class ZakatController extends Controller
     );
         
         $zakat->save();
-        return redirect('bayarzakat');
+        return redirect('zakat');
     }
 
 

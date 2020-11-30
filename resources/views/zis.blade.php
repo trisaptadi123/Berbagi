@@ -36,7 +36,7 @@
                     <div class="product_desc">
 					<div class="col-md-12">
 						{{-- zakat penghasilan --}}
-						<form action="{{url('zakat-profesi')}}" name="profesi" method="POST">
+						<form action="{{url('zakat-profesi')}}" name="profesi" method="GET">
 							{{ csrf_field() }}
 						<fieldset>
 						  <div class="row">
@@ -92,7 +92,7 @@
                   <div id="dagang" class="tab-pane fade">
                     <div class="product_desc">
                       <div class="col-md-12">
-						<form action="{{url('zakat-perdagangan')}}" name="dagang" method="POST">
+						<form action="{{url('zakat-perdagangan')}}" name="dagang" method="GET">
 							@csrf
 										<fieldset>
 										<div class="row">
@@ -161,7 +161,7 @@
                   <div id="simpanan" class="tab-pane fade">
                     <div class="product_desc">
 					<div class="col-md-12">
-						<form action="{{url('zakat-simpanan')}}" name="simpanan" method="POST">
+						<form action="{{url('zakat-simpanan')}}" name="simpanan" method="GET">
 							@csrf
 						<fieldset>
 						  <div class="row">
@@ -212,7 +212,7 @@
 				  <div id="emas" class="tab-pane fade">
                     <div class="product_desc">
 					<div class="col-md-12">
-						<form action="{{url('zakat-emas')}}" name="emas" method="POST">
+						<form action="{{url('zakat-emas')}}" name="emas" method="GET">
 							@csrf
 						<fieldset>
 						  <div class="row">

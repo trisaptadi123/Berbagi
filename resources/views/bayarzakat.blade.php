@@ -38,7 +38,7 @@
             {{ csrf_field() }}        
             <fieldset>
             <div class="row">
-              
+    
 			  <div class="col-md-12">
                 @foreach ($zakat as $z)
 				<div class="form-field">
@@ -47,7 +47,7 @@
 				<p class="center" style="font-size:12px;">Segera transfer TEPAT sesuai nominal berikut</p>
                 <h2 class="center">Rp. <?php echo number_format($z->jumlah+$z->kode_unik,0,",",".");?></h2>
 				<div class="alert alert-primary" role="alert" style="font-size: 12px; line-height: 22px; text-align:justify;">
-				<b>Terimakasih</b> Telah Menitipkan Zakatnya
+        <b>Terimakasih</b> Telah Menitipkan Zakatnya
 				</div>
 				<table class="table" style="font-size:12px;">
         <tr><td>Jumlah Zakat</td><td align="right">Rp. <?php echo number_format($z->jumlah,0,",",".");?></td></tr>

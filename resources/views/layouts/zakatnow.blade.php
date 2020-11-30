@@ -27,7 +27,7 @@
     <div class="row" style="margin-top: -120px;">
       <div class="center">
         <div class="col-md-6">
-            <form  method="post" action="{{url('zakat')}}" class=" center" style="font-family:arial;">
+            <form action="{{url('zakat-yuk')}}" method="post"  class=" center" style="font-family:arial;">
               <fieldset>
           <div class="checkout-form" style="margin-bottom:10px; border-radius:10px;">
               <div class="row">
@@ -59,7 +59,7 @@
                 <div class="form-field">
                   <label for="nominal">Jumlah Zakat yang anda bayar</label>
                   <input type="text" name="jumlah" style="background:#dddddd;" class="form-control" id="rupiah" onkeyup="convertToRupiah(this);" aria-describedby="jumlah" value="  <?php
-                  $nama     = $_POST ['jumlah'];
+                  $nama     = $_GET ['jumlah'];
                   echo ''.$nama;
                   ?>" required>
                 
@@ -69,7 +69,7 @@
                 </div>
                 <div class="form-field">
                   <input type="hidden" name="jenis" style="background:#dddddd;" class="form-control" id="jenis"  value="  <?php
-                  $nama     = $_POST ['zaprov'];
+                  $nama     = $_GET ['zaprov'];
                   echo ''.$nama;
                   ?>" required>
                 
@@ -118,7 +118,7 @@
               </div>
               <div class="col-md-12">
                 <div class="form-field">
-                  <button type="submit" class="btn main_bt col-md-12" id="tombol" style="border-radius:5px;">Lanjut Pembayaran</button>
+                  <button type="submit" class="btn main_bt col-md-12"  style="border-radius:5px;">Lanjut Pembayaran</button>
               </div>
             </div>
         </div>

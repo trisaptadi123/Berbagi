@@ -18,12 +18,13 @@
 Route::get('/','PostCategoryController@index');
 Route::get('semuadonasi','PostCategoryController@semuadonasi');
 Route::get('email_template','PostCategoryController@mail');
-Route::post('zakat-profesi','PostCategoryController@zakatprof');
-Route::post('zakat-simpanan','PostCategoryController@zakatsimpan');
-Route::post('zakat-emas','PostCategoryController@zakatemas');
-Route::post('zakat-perdagangan','PostCategoryController@zakatdagang');
+Route::get('zakat-profesi','PostCategoryController@zakatprof');
+Route::get('zakat-simpanan','PostCategoryController@zakatsimpan');
+Route::get('zakat-emas','PostCategoryController@zakatemas');
+Route::get('zakat-perdagangan','PostCategoryController@zakatdagang');
 Route::get('bayarzakat','PostCategoryController@bayarzakat');
-Route::post('zakat','PostCategoryController@stored');
+Route::post('zakat-yuk','PostCategoryController@stored');
+// Route::post('zakat-kuy','PostCategoryController@bayarzakat');
 
 
 Route::get('/program/{post}','PostCategoryController@readmore')->name('program.detail');
@@ -93,7 +94,7 @@ Route::group(['middleware'=>['web']],function(){
     Route::get('zakat','ZakatController@index');
     Route::get('zakat/create','ZakatController@create');
     Route::delete('zakatdel/{zakat}','ZakatController@destroy');
-    Route::post('bayarzakat','ZakatController@stored');
+    Route::post('bayarzakat','ZakatController@store');
     
   
 
