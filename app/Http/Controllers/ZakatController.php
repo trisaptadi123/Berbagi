@@ -62,5 +62,28 @@ class ZakatController extends Controller
         return redirect('zakat');
     }
 
+    public function show(Zakat $zakat){
+        $zak = Zakat::get();
+        return view ('zakat.show',compact('zakat'));
+    }
+    
+    public function status($id){
+        $data = Zakat::where('id_zakat',$id)->first();
+
+        $status_sekarang = $data->status;
+
+        if($status_sekarang == 1){
+            Zakat::where('id_zakat',$id)->update([
+                'status'=>0
+            ]);
+        }else{
+            Zakat::where('id_zakat',$id)->update([
+                'status'=>1,
+                'tanggal_acc' => date('Y-m-d H:i:s')
+            ]);
+        }
+        return redirect('zakat');
+    }
+
 
 }

@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use App\DataDonatur;
+use App\Bank;
 
 class SendMail extends Mailable
 {
@@ -33,7 +34,12 @@ class SendMail extends Mailable
     public function build()
     {
         $list_donatur = DataDonatur::orderBy('created_at','desc')->paginate(1);
-        return $this->from('no-reply@berbagibahagia.org')->subject('Transfer Donasi Ke Rekening Berikut')->view('email_template',compact('list_donatur'));
+        foreach($list_donatur as $donat){
+        $i = explode(' ',$donat->bank);
+        }
+        $t = Bank::where('nama', $i[0])->first();
+        
+        return $this->from('no-reply@berbagibahagia.org')->subject('Transfer Donasi Ke Rekening Berikut')->view('email_template',compact('list_donatur','t'));
         // from('no-reply@berbagibahagia.org')->subject('Transfer Donasi Ke Rekening Berikut')->view('email_template')->with('data', $this->data);
     }
 

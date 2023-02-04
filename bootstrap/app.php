@@ -52,4 +52,8 @@ $app->singleton(
 |
 */
 
+// file START ommited
+$app->register(Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class);
+// file END ommited
+
 return $app;

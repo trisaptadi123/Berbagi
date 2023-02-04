@@ -30,8 +30,31 @@ class BankController extends Controller
         // $bank->nama = $request->nama;
         // $bank->norek = $request->norek;
 
-        if($request->hasFile('logo')){
-            $image = $request->file('logo');
+        // if($request->hasFile('logo')){
+        //     $image = $request->file('logo');
+
+        //     if($image->isValid()){
+        //         $image_name = $image->getClientOriginalName();
+        //         $upload_path = 'gambarUpload';
+        //         $image->move($upload_path, $image_name);
+        //         // $bank->gambar = $image_name;
+        //         $input['logo'] = $image_name;
+        //     }
+        // }
+        // dd($input);
+        if($request->hasFile('QR')){
+            $image = $request->file('QR');
+
+            if($image->isValid()){
+                $image_name = $image->getClientOriginalName();
+                $upload_path = 'gambarUpload';
+                $image->move($upload_path, $image_name);
+                // $bank->gambar = $image_name;
+                $input['QR'] = $image_name;
+            }
+        }
+        if($request->hasFile('gambar')){
+            $image = $request->file('gambar');
 
             if($image->isValid()){
                 $image_name = $image->getClientOriginalName();
@@ -68,6 +91,30 @@ class BankController extends Controller
       $bank = Bank::findOrFail($id);
 
       $input = $request->all();
+    //  dd($input);
+      
+       if($request->hasFile('QR')){
+            $image = $request->file('QR');
+
+            if($image->isValid()){
+                $image_name = $image->getClientOriginalName();
+                $upload_path = 'gambarUpload';
+                $image->move($upload_path, $image_name);
+                // $bank->gambar = $image_name;
+                $input['QR'] = $image_name;
+            }
+        }
+        if($request->hasFile('gambar')){
+            $image = $request->file('gambar');
+
+            if($image->isValid()){
+                $image_name = $image->getClientOriginalName();
+                $upload_path = 'gambarUpload';
+                $image->move($upload_path, $image_name);
+                // $bank->gambar = $image_name;
+                $input['logo'] = $image_name;
+            }
+        }
     
       $bank->update($input);
       return redirect('bank');

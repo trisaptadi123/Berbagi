@@ -84,8 +84,7 @@
                 <ul class="nav pull-right">
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Selamat bekerja, {{ Auth::user()->name }}<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/user/preferences"><i class="fa fa-cogs"></i> Pengaturan</a></li>
-                            <li><a href="/help/support"><i class="fa fa-user-circle"></i> Profil</a></li>
+                            <li><a href="https://berbagibahagia.org/"><i class="fa fa-user-circle"></i>Dashboard</a></li>
                             <li class="divider"></li>
                             <li> <a href="{{ route('logout') }}"
                   onclick="event.preventDefault();

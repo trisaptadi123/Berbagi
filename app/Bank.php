@@ -9,6 +9,6 @@ class Bank extends Model
     protected $table ="bank";
 
     protected $fillable = [
-     'nama','norek','logo'
+     'logo','nama','norek','url','QR','deskripsi','jenis'
  ];
 }

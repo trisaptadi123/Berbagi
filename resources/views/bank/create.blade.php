@@ -1,5 +1,14 @@
 @extends('admin')
 @section('konten')
+
+<style type="text/css">
+    .note-editor {
+        line-height: 1.0;
+        text-align: justify;
+        font-family: 'Open Sans' !important; 
+    }
+    
+</style>
     
 <div class="container mt-10">
    
@@ -31,12 +40,33 @@
                     <label for="norek">norek</label>
                     <input type="text" name="norek" class="form-control" id="norek" aria-describedby="norek" placeholder="no rek">
                 </div>
+                
+                <div class="form" style="margin-top:10px;">
+                    <label for="jenis">Jenis</label>
+                    <select id="jenis" class="form-control" name="jenis">
+                        <option selected="selected" value="" >pilih Kategori</option>
+                        <option value="QRIS" >QRIS</option>
+                        <option value="Transfer Bank" >Transfer Bank</option>
+                    </select>
+                    
+                </div>
 
                 <div class="form-group">
-                    <label for="logo">Upload</label>
-                    <input type="file" name="logo" id="logo" aria-describedby="logo" >
+                    <label for="QR">Upload kode QR</label>
+                    <input type="file" name="QR" id="QR" aria-describedby="QR" >
                 </div>
-              
+                <div class="form-group">
+                    <label for="gambar">Logo Pembayaran</label>
+                    <input type="file" name="gambar" id="gambar" aria-describedby="gambar" >
+                </div>
+                <div class="form-group">
+                    <label for="artikel">Artikel</label>
+                    <textarea id="summernotes" name="deskripsi"></textarea>
+                </div>
+                <div class="form">
+                    <label for="norek">url</label>
+                    <input type="text" name="url" class="form-control" >
+                </div>
             <button type="submit" class="btn btn-primary">Submit</button>
             </form>
            

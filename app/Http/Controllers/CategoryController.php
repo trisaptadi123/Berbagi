@@ -16,7 +16,7 @@ class CategoryController extends Controller
     public function index(){
         $title = "category";
         $list_category = Category::all();
-        return view('postCategory.index',compact('title','list_category'));
+        return view('postcategory.index',compact('title','list_category'));
     }
 
     public function create(){

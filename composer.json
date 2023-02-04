@@ -4,15 +4,31 @@
     "description": "The Laravel Framework.",
     "keywords": [
         "framework",
-        "laravel"
+        "laravel",
+        "lumen",
+        "seo",
+        "seotools",
+        "webmaster",
+        "metatags",
+        "opengraph",
+        "json-ld"
     ],
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "artesaos/seotools": "^0.23.0",
         "fideloper/proxy": "^4.0",
+        "intervention/image": "^2.5",
         "laravel/framework": "^6.18.35",
+        "laravel/socialite": "^5.1",
         "laravel/tinker": "^2.0",
-        "laravel/ui": "^1.2"
+        "laravel/ui": "^1.2",
+        "maatwebsite/excel": "^3.1",
+        "midtrans/midtrans-php": "^2.5",
+        "phpoffice/phpspreadsheet": "^1.18",
+        "spatie/laravel-analytics": "^3.11",
+        "spatie/laravel-tags": "^3.1",
+        "webpatser/laravel-uuid": "2.*"
     },
     "require-dev": {
         "facade/ignition": "^1.4",

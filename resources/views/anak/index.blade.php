@@ -1,7 +1,13 @@
 @extends('admin')
 @section('konten')
     
-
+<style>
+#wrapper2{width: 100%; border: none 0px RED;
+overflow-x: scroll; overflow-y:hidden;}
+#wrapper2{height: 80%; }
+#div2 {width:100%; height: 95%;
+overflow: auto;}
+</style>
 
 <section class="content-header">
     <h1>
@@ -20,6 +26,11 @@
           </div>
           <!-- /.box-header -->
           <div class="box-body">
+            <?php if ($anak->count() >= 5) { ?>
+                <div id="wrapper2">
+                <div id="div2">
+            <?php }else{ ?>
+            <?php } ?>
             <table id="example1" class="table table-bordered table-striped">
               <thead>
               <tr>
@@ -33,16 +44,23 @@
                 <th>Pendidikan</th>
                 <th>Kelas</th>
                 <th>Sekolah</th>
+                <th>Shelter</th>
+                <th>Cabang</th>
+                <th>Orang Tua Asuh</th>
+                <th>tgl input</th>
+                <th>tgl update</th>
+                <th>Kelola</th>
                 
                 
               </tr>
               </thead>
               <tbody>
+                @php $no = 1; @endphp
              @foreach ($anak as $anak)
              <tr>
-              <td>{{$anak->id}}</td>
+              <td>{{$no++}}</td>
              <td>{{$anak->nama}}</td>
-             <td>{{$anak->foto_anak}}</td>
+             <td>{{$anak->gambar_anak}}</td>
              <td>{{$anak->kriteria}}</td>
              <td>{{$anak->jk}}</td>
              <td>{{$anak->hobi}}</td>
@@ -50,13 +68,25 @@
              <td>{{$anak->jp}}</td>
              <td>{{$anak->kls}}</td>
              <td>{{$anak->sekolah}}</td>
-            
+             <td>{{$anak->shelter}}</td>
+             <td>{{$anak->cabang}}</td>
+             <td>{{$anak->orangtua_asuh}}</td>
+            <td>{{date('Y-m-d H:i',strtotime($anak->created_at))}}</td>
+            <td>{{date('Y-m-d H:i',strtotime($anak->created_at))}}</td>
            
             
              <td>
+                <div class="btn-group">
+                @if ($anak->status == 1)
+                <a class="btn btn-danger" href="{{ url('anak/statusanak/'.$anak->id) }}">Pending</a>
+                @else
+                <a class="btn btn-primary" href="{{ url('anak/statusanak/'.$anak->id) }}">Acc</a>
+                @endif
+              
+              </div>
                
               <div class="btn-group">
-                <a class="btn btn-warning btn-sm" href="#">Edit</a>
+                <a class="btn btn-warning btn-sm" href="{{ url('/anak/'.$anak->id.'/edit') }}">Edit</a>
               </div>
             <form method="post" action="{{url('/anak/'.$anak->id)}}">
                 @csrf
@@ -76,7 +106,12 @@
             
               </tfoot>
             </table>
-          </div>
+            <?php if ($anak->count() >= 5) { ?>
+                </div>
+                </div>
+            <?php }else{ ?>
+            <?php } ?>
+            </div>
           <!-- /.box-body -->
         </div>
         <!-- /.box -->
@@ -86,3 +121,20 @@
 
   </section>
   @endsection
+  <?php if ($anak->count() >= 5) { ?>
+    <script>
+    var wrapper1 = document.getElementById('wrapper1');
+    var wrapper2 = document.getElementById('wrapper2');
+    wrapper1.onscroll = function() {
+      wrapper2.scrollLeft = wrapper1.scrollLeft;
+    };
+    wrapper2.onscroll = function() {
+      wrapper1.scrollLeft = wrapper2.scrollLeft;
+    };
+    </script>
+  <?php }else{ ?>
+  <?php } ?>
+  
+  
+  
+  

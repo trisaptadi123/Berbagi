@@ -9,6 +9,11 @@ class Anak extends Model
     protected $table ="anak";
 
     protected $fillable = [
-     'nama','foto_anak','kriteria','jk','hobi','jp','kls','sekolah','ttl'
- ];
+     'nama','gambar_anak','kriteria','jk','hobi','jp','kls','sekolah','shelter','cabang','ttl','id_disclaimer','deskripsi', 'orangtua_asuh'
+    ];
+
+ public function getRouteKeyName(){
+     
+    return 'nama';
+}
 }

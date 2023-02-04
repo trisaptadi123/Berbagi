@@ -12,9 +12,9 @@ class Zakat extends Model
         'jumlah','nama','email','bank','kode_unik','nomorhp','jenis'
  ];
 
- protected $primaryKey = 'id_zakat';
+//  protected $primaryKey = 'id_zakat';
+protected $primaryKey = 'id_zakat'; // or null
 
- public function getRouteKeyName(){
-    return 'id_zakat';
-}
+    public $incrementing = false;
+
 }

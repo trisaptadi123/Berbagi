@@ -3,9 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="csrf-token" content="{{ csrf_token() }}">  
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <title>Admin</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  @yield('css')
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="{{asset('gaya/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
   <link rel="stylesheet" href=" https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
@@ -27,16 +30,30 @@
   <link rel="stylesheet" href="{{asset('gaya/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}">
   <!-- Daterange picker -->
   <link rel="stylesheet" href="{{asset('gaya/bower_components/bootstrap-daterangepicker/daterangepicker.css')}}">
-  <!-- bootstrap wysihtml5 - text editor -->
-  <link rel="stylesheet" href="{{asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
- 
+  <link rel="stylesheet" href="{{asset('gaya/bower_components/select2/dist/css/select2.min.css')}}">
   
+  <!-- bootstrap wysihtml5 - text editor -->
+  {{-- <link rel="stylesheet" href="{{asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}"> --}}
+ 
+  <link rel="stylesheet" href="{{asset('gaya/editor/suneditor.min.css')}}">
 
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  
+  
+  <!--<meta name="_token" content="{{ csrf_token() }}">-->
+  
+  
+  
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.css">
+   <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/theme/monokai.css">
+   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.js"></script>
+   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/mode/xml/xml.js"></script>
+   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/2.36.0/formatting.js"></script>
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini fixed">
 <div class="wrapper">
 
   <header class="main-header">
@@ -54,7 +71,7 @@
     @yield('konten')
   </div>
   {{-- Halaman untuk copyright --}}
-  <footer class="main-footer">
+  <footer class="main-footer fixed">
   @include('footer')
   </footer>
   <!-- Control Sidebar -->
@@ -72,7 +89,12 @@
   <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
-
+<!--suneditor-->
+<script src="{{asset('gaya/editor/codemirror.min.js')}}"></script>
+<script src="{{asset('gaya/editor/common.js')}}"></script>
+<script src="{{asset('gaya/editor/customtool.js')}}"></script>
+<script src="{{asset('gaya/editor/katex.min.js')}}"></script>
+<script src="{{asset('gaya/editor/suneditor.min.js')}}"></script>
 <!-- jQuery 3 -->
 <script src="{{asset('gaya/bower_components/jquery/dist/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -99,14 +121,16 @@
 <!-- datepicker -->
 <script src="{{asset('gaya/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
 <!-- Bootstrap WYSIHTML5 -->
-<script src="{{asset('gaya/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
-<script src="{{asset('gaya/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
+{{-- <script src="{{asset('gaya/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script> --}}
+{{-- <script src="{{asset('gaya/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script> --}}
 {{-- Data table --}}
 <script src="{{asset('gaya/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('gaya/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
 <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 <!-- Slimscroll -->
 <script src="{{asset('gaya/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
+<script src="{{asset('gaya/bower_components/select2/dist/js/select2.full.min.js')}}"></script>
+
 <!-- FastClick -->
 <script src="{{asset('gaya/bower_components/fastclick/lib/fastclick.js')}}"></script>
 <!-- AdminLTE App -->
@@ -115,9 +139,12 @@
 <script src="{{asset('gaya/dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('gaya/dist/js/demo.js')}}"></script>
+<script>$('.select2').select2();</script>
+
 <script>
   $(function () {
     $('#example1').DataTable()
+    // $('#example3').DataTable()
     $('#example2').DataTable({
       'paging'      : true,
       'lengthChange': false,
@@ -128,5 +155,148 @@
     })
   })
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+@yield('js')
+<script type="text/javascript">
+		
+$("#rupiah").keyup(function() {
+  var clone = $(this).val();
+  var cloned = clone.replace(/[A-Za-z$. ,-]/g, "")
+  $("#angka").val(cloned);
+});
+
+
+function convertToRupiah(objek) {
+	  separator = ".";
+	  a = objek.value;
+	  b = a.replace(/[^\d]/g,"");
+	  c = "";
+	  panjang = b.length; 
+	  j = 0; 
+	  for (i = panjang; i > 0; i--) {
+	    j = j + 1;
+	    if (((j % 3) == 1) && (j != 1)) {
+	      c = b.substr(i-1,1) + separator + c;
+	    } else {
+	      c = b.substr(i-1,1) + c;
+	    }
+	  }
+	  if (c <= 0){
+		objek.value = '';
+	  }else{
+	    objek.value = 'Rp. ' + c;
+	  }
+	
+	} 
+
+</script>
+<script>
+ $(function () {
+        $("#cek").click(function () {
+          // var p=$("#nama");
+          document.getElementById('id_category').readOnly=this.checked;
+          
+          $.each($("input[name='cek']:checked"), function () { 
+            var n =$(this).val();
+            console.log(n);    
+            document.getElementById("id_category").value= n;
+          });
+ 
+        });
+    });
+</script>
+
+<!--<script>
+      $(document).ready(function() {
+          $('.summernote').summernote({
+        placeholder: 'Masukan teks disini',
+        tabsize: 2,
+        height: 320,
+      
+      
+        var loadFile = function(event) {
+	    var output = document.getElementById('output');
+	    output.src = URL.createObjectURL(event.target.files[0]);
+	    };
+	    
+	    $("#nospace").on({
+    	keydown: function(e) {
+    	if (e.which === 32)
+     	return false;
+         },
+        keyup: function(){
+    	this.value = this.value.toLowerCase();
+         },
+        change: function() {
+        this.value = this.value.replace(/\s/g, "");
+        }
+        });
+        
+        var uploadField = document.getElementById("limit1mb");
+            uploadField.onchange = function() {
+            if(this.files[0].size > 1000000){ 
+            alert("Maaf, Ukuran Gambar Terlalu Besar. Maksimal Upload 1 MB");
+            this.value = "";
+	        var output = document.getElementById('output');
+	        output.src = "";
+            } else {
+	        var output = document.getElementById('output');
+	        output.src = URL.createObjectURL(event.target.files[0]);
+            };
+        };
+</script>
+-->
+<script>
+  $('#summernotes').summernote({
+    focus: true, 
+    placeholder: 'Masukan teks disini',
+    tabsize: 2,
+    height: 320,
+    codemirror: { // codemirror options
+      theme: 'monokai'
+    },
+
+    blockquoteBreakingLevel: 0,
+    callbacks: { onPaste: function (e) { var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text'); e.preventDefault(); document.execCommand('insertText', false, bufferText); } },
+    toolbar: [
+    ['style', ['style']],
+    ['font', ['bold', 'underline', 'clear']],
+    ['color', ['color']],
+    ['para', ['ul', 'ol', 'paragraph']],
+    ['table', ['table']],
+    ['insert', ['link', 'picture', 'video']],
+    ['view', ['fullscreen', 'codeview', 'help']]
+    ]
+    
+    
+  });
+
+</script>
+<script>
+  $('#summernotes1').summernote({
+    focus: true, 
+    placeholder: 'Masukan teks disini',
+    tabsize: 2,
+    height: 320,
+    codemirror: { // codemirror options
+      theme: 'monokai'
+    },
+
+    blockquoteBreakingLevel: 0,
+    callbacks: { onPaste: function (e) { var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text'); e.preventDefault(); document.execCommand('insertText', false, bufferText); } },
+    toolbar: [
+    ['style', ['style']],
+    ['font', ['bold', 'underline', 'clear']],
+    ['color', ['color']],
+    ['para', ['ul', 'ol', 'paragraph']],
+    ['table', ['table']],
+    ['insert', ['link', 'picture', 'video']],
+    ['view', ['fullscreen', 'codeview', 'help']]
+    ]
+  });
+
+</script>
+
+
 </body>
 </html>

@@ -9,7 +9,9 @@ class Slide extends Model
     protected $table ="slider";
 
     protected $fillable = [
-        'gambar_slide','title','subtitle','button','link'
+        'gambar_slide','title','subtitle','penempatan','button','link','qurban'
     ];
+    
+    protected $primaryKey = 'id_slider';
 
 }

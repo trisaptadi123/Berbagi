@@ -14,8 +14,9 @@ class SlideController extends Controller
     }
     public function index(){
         $title = "slider";
-        $slider = Slide::all();
-        return view('slide.index',compact('title','slider'));
+        $slider = Slide::where('qurban', null)->get();
+        $poster = Slide::where('qurban','!=',null)->get();
+        return view('slide.index',compact('title','slider', 'poster'));
     }
 
     public function create(){
@@ -69,7 +70,7 @@ class SlideController extends Controller
               $image_name = $image->getClientOriginalName();
               $upload_path = 'gambarUpload';
               $image->move($upload_path, $image_name);
-              $input['gambar'] = $image_name;
+              $input['gambar_slide'] = $image_name;
           }
   
           

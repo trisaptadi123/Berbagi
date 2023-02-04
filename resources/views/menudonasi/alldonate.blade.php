@@ -1,99 +1,99 @@
-<div class="section checkout_section">
-    <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="full">
-              <div class="checkout-form" style="border:0px;">
-                <form action="#">
-                  <fieldset>
-                    <div class="row">
-                      <div class="col-md-3 col-sm-3 col-xs-12">
-                <div class="form-field">
-                  <label>Kategori</label>
-                        <select name="cn">
-                              <option >Semua</option>
-                    <option value="">Pendidikan</option>
-                    <option value="">Kesehatan</option>
-                    <option value="">Infrastruktur</option>
-                         </select>
-                      </div>
-                </div>
-                <div class="col-md-3 col-sm-3 col-xs-12">
-                <div class="form-field">
-                  <label>Wilayah</label>
-                        <select name="cn">
-                              <option >Semua</option>
-                    <option value="">Indramayu</option>
-                    <option value="">Sumedang</option>
-                    <option value="">Bandung</option>
-                         </select>
-                      </div>
-                </div>
-                <div class="col-md-3 col-sm-3 col-xs-12">
-                <div class="form-field">
-                  <label>Urutkan</label>
-                        <select name="cn">
-                              <option >Semua</option>
-                    <option value="">Terpopuler</option>
-                    <option value="">Terbaru</option>
-                    <option value="">Terlama</option>
-                         </select>
-                      </div>
-                </div>
-                      <div class="col-md-3 col-sm-3 col-xs-12">
-                        <button class="bt_main" style="margin-top:12px;">Terapkan Filter</button>
-                      </div>
-                    </div>
-                  </fieldset>
-                 </form>
+<div class="section" style="padding:10px 0 10px 0; ">
+  <div class="container d-flex justify-content-center" style="width: 510px; background:#fff; padding: 30px ">
+    <div class="row">
+      <div class="col-md-12 col-sm-6">
+         <form action="{{url('filterah')}}" method="GET">
+        @csrf
+          <div class="row">
+            <div class="col-md-4 ">
+              <div class="form-field">
+                <label>Kategori</label>
+
+                <select id="id_category" class="from-control" name="id_category" id="filter-aktif">
+                 <option selected="selected" value="" >- Pilih -</option>
+                 @foreach($kategori as $data)
+                 <option value="{{$data->id}}">{{$data->name}}</option>
+                 @endforeach
+               </select>
+             </div>
+           </div>
+
+           <div class="col-md-4 ">
+            <div class="form-field">
+             <label>Wilayah</label>
+
+             <select id="wilayah" class="from-control" name="wilayah">
+               <option selected="selected" value="" >- Pilih -</option>
+               @foreach($wilayah as $datas)
+               <option value="{{$datas->nama_kota}}">{{$datas->nama_kota}}</option>
+               @endforeach
+             </select>
+           </div>
+         </div>
+
+         <div class="col-md-4 mt-4">
+          <button type="submit" class="hyuwan" style="border-radius:5px; max-width: ">Filter</button>
+                <!-- <div class="form-field">
+                </div> -->
               </div>
             </div>
-          </div>
-        </div>
-        <div class="row">
-          @foreach ($sma_list as $post)
-          <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
-          
-            <a href="{{route('program.detail',$post->deskripsi)}}">
-            <div class="product_list">
-              <div class="product_img"> <img class="img-responsive" src="{{asset('gambarUpload/'.$post->gambar)}}" alt=""> </div>
-              <div class="product_detail_btm">
-                <div class="center-cam">
-                  <h4>{{($post->title)}}</h4>
-                </div>
-                <p class="center-cam">{{($post->kategori)}}<span class="fa fa-check"></span>
-                <hr style="margin:0;">
-                <div class="product_price shopping-cart" style="font-size:10px;">
-                  <table class="table">
-                  <tr style="margin-bottom:-10px;">
-                  <td align="left" >Terkumpulan</td> 
-                  <td align="right" style="text-align:right; ">Sisa Waktu</td>
-                  </tr>
-                  <tr  style=" border-top: 2px solid #ffffff;">
-                  <td align="left"><b>Rp. <?php echo number_format(0,0,",",".");?></b></td> 
-                  <td align="right" style="text-align:right;"><b>100 Hari</b></td>
-                  </tr>
-                  </table>
-                </div>	
-                </p>
-                <div class="starratin center">
-                    <div class="progress" style="width:100%;">
-                        <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                </div>
-              </div>
-            </div>
-            </a>
-          </div>
-          @endforeach
-          <div class="center">
-            <ul class="pagination style_1" style="margin-bottom:100px;">
-                <li><a href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href=""><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-            </ul>
-          </div>
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="section" style="background: #fff; display: flex;justify-content: center;" >
+    <div style="margin-top: 18px">
+      <div class="row">
+
+        <!--@if(Auth::check())-->
+        <!--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">-->
+          <!--  <a href="{{url('donasisaya')}}" type="submit" class="a_list btn main_bt col-md-12" style="border-radius:5px; margin-bottom:30px;">-->
+            <!--    RIWAYAT DONASI SAYA-->
+            <!--  </a>-->
+            <!--</div>-->
+            <!--@else-->
+            <!--@endif-->
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin_bottom_30_all">
+              <div class="row">
+                {{ csrf_field() }}
+                <div id="post_data">
+
+                </div>
+              </div>        
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <script>
+        $(document).ready(function(){
+
+         var _token = $('input[name="_token"]').val();
+
+         load_data('', _token);
+
+         function load_data(id="", _token)
+         {
+          $.ajax({
+           url:"http://127.0.0.1:8000/semuadonasi",
+           method:"POST",
+           data:{id:id, _token:_token},
+           success:function(data)
+           {
+            $('#load_more_button').remove();
+            $('#post_data').append(data);
+          }
+        })
+        }
+
+        $(document).on('click', '#load_more_button', function(){
+          var id = $(this).data('id');
+          $('#load_more_button').html('<b>Loading...</b>');
+          load_data(id, _token);
+        });
+
+      });
+    </script>

@@ -6,7 +6,7 @@
     <div class="#">
         <div class="#" style="width: 60%;">
             <div class="card-header">
-            Tambah Campaign
+            Tambah Kategori
             </div>
             <div class="card-body">
                 @if ($errors->any())
